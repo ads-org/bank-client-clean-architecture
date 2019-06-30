@@ -1,0 +1,12 @@
+<div>
+  <a [routerLink]="['accounts']">Accounts</a>
+  <br>
+  <a [routerLink]="['bank-transfer']">Bank transfer</a>
+  <br>
+  <a [routerLink]="['customer']">Customer</a>
+  <br>
+  <a [routerLink]="['users']">Users</a>
+  <br>
+  <button (click)="logout()">Logout</button>
+</div>
+<router-outlet></router-outlet>
