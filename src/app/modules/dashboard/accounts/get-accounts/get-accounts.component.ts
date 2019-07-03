@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-get-accounts',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetAccountsComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  get() {
+
+  }
 }

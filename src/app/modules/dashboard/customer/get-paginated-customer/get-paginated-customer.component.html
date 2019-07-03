@@ -1,3 +1,4 @@
-<p>
-  get-paginated-customer works!
-</p>
+<h1>List of Customers</h1>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let customer of customers">{{customer.firstName}} {{customer.lastName}}</li>
+</ul>

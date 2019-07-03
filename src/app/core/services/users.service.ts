@@ -18,7 +18,7 @@ const httpOptions = {
 export class UsersService {
   private currentUserSubject = new BehaviorSubject<UserAuth>(JSON.parse(localStorage.getItem('currentUser')));
   private currentUser = this.currentUserSubject.asObservable();
-  baseUrl = environment.baseUrl;
+  baseUrl = environment.baseUrl + '/api/users';
 
   constructor(private http: HttpClient) {
   }
@@ -28,7 +28,7 @@ export class UsersService {
   }
 
   login(loginData: User) {
-    return this.http.post<any>(this.baseUrl + '/api/users/login', JSON.stringify(loginData), httpOptions)
+    return this.http.post<any>(this.baseUrl + '/login', JSON.stringify(loginData), httpOptions)
       .pipe(map(user => {
         if (user && user.bearerToken) {
           localStorage.setItem('currentUser', JSON.stringify(user));
@@ -43,6 +43,6 @@ export class UsersService {
   }
 
   getAll() {
-    return this.http.get<User>(this.baseUrl + '/api/users');
+    return this.http.get<User>(this.baseUrl);
   }
 }
