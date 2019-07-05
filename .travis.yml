@@ -1,17 +1,20 @@
 language: node_js
 node_js:
-  - "10.9"
+  - "9"
 dist: trusty
-sudo: required
+sudo: false
 branches:
   only:
   - master
-before_script:
-  - npm install -g @angular/cli
+cache:
+  directories:
+    - node_modules
+install:
+  - npm install -g yarn
 script:
-  - ng lint
-  - npm run test-headless
-  - ng build --prod --base-href https://diego126.github.io/travis-demo/
+  - yarn lint
+  - yarn build --base-href /client/
+  - mv dist/client/index.html dist/client/404.html
 deploy:
   provider: pages
   skip_cleanup: true
